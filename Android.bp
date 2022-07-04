@@ -734,24 +734,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-	name: "vendor.qti.hardware.bluetooth_audio@2.0-impl",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so"],
-		},
-	},
-	compile_multilib: "32",
-	check_elf_files: false,
-	relative_install_path: "hw",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "vendor.qti.hardware.bluetooth_audio@2.1-impl",
 	owner: "xiaomi",
 	strip: {
@@ -4667,23 +4649,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-	name: "vendor.qti.hardware.slmadapter@1.0",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so"],
-		},
-	},
-	compile_multilib: "64",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "vendor.qti.hardware.soter@1.0",
 	owner: "xiaomi",
 	strip: {
@@ -5273,16 +5238,6 @@ cc_prebuilt_library_shared {
 }
 
 android_app_import {
-	name: "SoterService",
-	owner: "xiaomi",
-	apk: "proprietary/app/SoterService/SoterService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-}
-
-android_app_import {
 	name: "CACertService",
 	owner: "xiaomi",
 	apk: "proprietary/vendor/app/CACertService/CACertService.apk",
@@ -5308,6 +5263,17 @@ android_app_import {
 	name: "IWlanService",
 	owner: "xiaomi",
 	apk: "proprietary/vendor/app/IWlanService/IWlanService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	soc_specific: true,
+}
+
+android_app_import {
+	name: "SoterService",
+	owner: "xiaomi",
+	apk: "proprietary/vendor/app/SoterService/SoterService.apk",
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
